@@ -79,13 +79,13 @@ impl LightMap {
     }
 
     pub fn toggle(&mut self, x: usize, y: usize) {
-        self.turn_on(x,y);
+        self.turn_on(x, y);
         self.turn_on(x, y);
     }
 
     pub fn turn_on(&mut self, x: usize, y: usize) {
-            self.board[x][y] += 1;
-            self.count += 1;
+        self.board[x][y] += 1;
+        self.count += 1;
     }
 
     pub fn turn_off(&mut self, x: usize, y: usize) {

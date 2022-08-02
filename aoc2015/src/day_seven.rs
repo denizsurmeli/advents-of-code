@@ -5,11 +5,12 @@ use std::collections::HashMap;
 // Find direct assignments first
 // Then find components such that the lhs involves both of the
 // in the map. Repeat until no instructions left.
+// Too slow, what to do ?
+
+
+
 
 /// Circuit emulator given the input list in AOC2015V standard.
-
-// bummer, can't store
-// static NO_SIG: u16 = 2<<15 + 1;
 pub struct Emulator {
     wires: HashMap<String, u16>,
     raw_signals: Vec<String>,
@@ -116,7 +117,7 @@ impl Emulator {
                             },
                         };
                             let result = match operator.as_str() {
-                                "AND" => lhs ^ rhs,
+                                "AND" => lhs & rhs,
                                 "OR" => lhs | rhs,
                                 "RSHIFT" => lhs >> rhs,
                                 "LSHIFT" => lhs << rhs,
@@ -138,5 +139,9 @@ impl Emulator {
 
     pub fn get_wire(&self, wire: &str) -> u16 {
         *self.wires.get(&wire.to_string()).unwrap()
+    }
+
+    pub fn get_all_wires(&self) -> HashMap<String,u16>{
+        self.wires.clone()
     }
 }

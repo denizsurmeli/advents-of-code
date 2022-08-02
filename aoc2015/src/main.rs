@@ -11,6 +11,6 @@ use aoc2015::day_two::{ribbon_needed, wrapping_paper};
 fn main() {
     let mut emulator = Emulator::new("./inputs/day7.txt");
     emulator.execute_circuit();
-    println!("{:?}",emulator.get_wire("a"));
+    println!("{:#?}",emulator.get_wire("d"));
 }
 //split into pairs, then count the "parts".
